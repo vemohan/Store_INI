@@ -1,0 +1,1 @@
+var index = {"tags":{"Interface":["specs\\WEBPOS.html"],"STORE_INI":["specs\\WEBPOS.html"],"Translator keys":["specs\\WEBPOS.html"],"WebPos Section":["specs\\WEBPOS.html"]},"specs":{"Verify WEBPOS is enabled by default":["specs\\WEBPOS.html"]}};

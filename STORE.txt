@@ -1,0 +1,547 @@
+; ****************************************************************
+; Copyright 2017 Catalina Marketing Corporation
+;
+; You are using this source code (and any object code
+; compiled therewith) under license.  This code is confidential
+; and proprietary.  All right, title, and interest in this code,
+; including copyrights, trade secrets, and patent rights belong
+; to Catalina Marketing Corporation.  By viewing and using this
+; code you acknowledge the confidential and proprietary nature
+; of the code, it's trade secret status, and its copyrightability
+; ****************************************************************
+;
+; Description:
+;     Sections containing store.ini default values
+
+[Alarms]
+    CMC4 = 3, H
+    CMC5 = 3, H
+    Sesenta1 = 1, K
+    StdPrinter = "", ""
+    CMC6 = 2, L
+    CMC5E02C = 3, H
+    CMC7 = 2, L
+    CMC8 = 2, L
+
+[Alcohol]
+    Code = 2
+    Values = On, Off
+    Print = On
+    Default = Off
+
+[BatchTime]
+    PingTime = 0
+    DailyTask = 00:01
+    DailyTask1 = 12:00
+    WeeklyTask = 4:00
+    DataCollection = 00:01
+    CDSLoad = 00:01
+
+[Boards]
+    Board1=Ethernet, E100BDualPort, 1, Group1, Group2, "", ""
+    Board2=Ethernet, E100BSinglePort, 2, Group3, "", "", ""
+    Board3=None, "", "", "", "", "", ""
+    Board4=None, "", "", "", "", "", ""
+
+[Cards]
+    Visa         = 2, 4(13), 4(16)
+    MC           = 3, 50-56(16)
+    Discover     = 4, 65(16), 6011(16), 622126-622925(16-19), 644-649(16)
+    AX           = 5, 34(15), 37(15)
+    Diners       = 6, 36(14), 38(14), 2014(15), 2149(15), 300-305(14)
+    Others       = 8, 1800(15), 2131(15), 35(16), 6334(16), 6334(18-19), 6767(16), 6767(18-19), 6304(16-19),
+                      6706(16-19), 6709(16-19), 6771(16-19), 6759(16), 6759(18-19), 5020(18), 5038(18), 4903(18-19),
+                      4905(18-19), 4911(18-19), 4936(18-19), 6333(16), 6333(18-19), 633110(16), 633110(18-19), 564182(18-19),
+                      6005065(16)
+    ValidateCreditCardCheckDigit=No
+
+[CIDMask]
+    Masks="0000$","000000####$","[a-fA-F]"
+
+[Controllers]
+    Controller1=USM_46XX, 1, Group1, "", "", ""
+    Controller2=None, "", "", "", "", ""
+
+[ControlStore]
+    Code = 1
+    Values = Print, NoPrint, Off
+    Print = Print, Off
+    Default = Off
+
+[Country]
+    LOCALE=US
+    CurrencyMultiplier = 1
+    Code = US
+    Months = JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC
+
+[Coupons]
+    Pdf417CaptionOffset=105
+    MaxValue = 1000
+    Symbols = "symbols.ini"
+    Redeem = "REDEEMABLE ONLY AT"
+    UpcMultiplier = Yes
+    GS1ConvertDate = 08/11/2008
+    ExcludedRenderType=1
+
+[Currency]
+    MoneyAtoMoneyB = 0.158996
+    MoneyBtoMoneyA = 1.0
+    MoneyDB = MoneyA
+    MoneyPOS= MoneyA
+    MoneyLog= MoneyA
+
+[Definitions]
+    Boards=Board1, Board2, Board3, Board4
+    Cards = Visa, MC, Discover, AX, Diners, Others
+    Controllers=Controller1, Controller2
+    DatabaseType=OCS, Transitional, 3D
+    Departments=Grocery, Bakery, Meat, Deli, Liquor, Produce, Dairy
+    InterfaceGroups=Group1, Group2, Group3, Group4, Group5, Group6
+    LogFiles=DataWarehouse
+    SpecialPrograms=ControlStore, Alcohol, NonAlcoholicBeer, SprintA, SprintB
+    Tender=Cash, Check, FoodStamp, WIC, EftTender, Charge, Misc, Unused
+
+[DepartmentCodes]
+    reporting=No
+    fakeUPCMask="777%4d7%3c7"
+    nonDeptIn=0
+    nonDeptOut=0
+    nonClassIn=0
+    nonClassOut=0
+
+[Group1]
+    GatewayIp=192.168.91.1
+    IpAddress=192.168.91.61
+    MTU=0000
+    NetMask=255.255.255.0
+    Port=199
+    Protocol=TCPIP/UDPIP
+    Sessions=UdpIpPSession
+    Bands=140, 350, 5
+    Binding=UdpIpP
+    GroupNumber=1
+    InitQueue=InitCmdQ
+    Interface=Ethernet
+    MaxPrinters=0
+    Messages=5, 20, 0
+    OutputQueue=Printer
+    PrintLimit=5
+    Process=UdpIpP
+    SupportsAct=No
+    SupportsCom=Yes
+    SupportsPos=Yes
+    SupportsPrt=No
+
+[Group2]
+    IpAddress=192.168.192.254
+    NetMask=255.255.255.0
+    Port=199
+    Protocol=StdPrintStaticIp
+    Sessions=InitSession2,PrinterSession2,TraceSession2
+    Bands=140, 350, 5
+    Binding=StdPrinterPrintPort2
+    GroupNumber=2
+    InitQueue=InitCmdQ2
+    Interface=Ethernet
+    MaxPrinters=4
+    Messages=25, 200, 0
+    OutputQueue=Printer2
+    PrintLimit=5
+    Process=StdPrinterPrint
+    SupportsAct=No
+    SupportsCom=No
+    SupportsPos=No
+    SupportsPrt=Yes
+
+[Group3]
+    IpAddress=192.168.91.61
+    Port=8199
+    Protocol=WebPOS
+    Bands=140, 350, 5
+    Binding=NoBinding
+    GroupNumber=3
+    InitQueue=InitCmdQ3
+    Interface=Ethernet
+    MaxPrinters=0
+    Messages=5, 20, 0
+    OutputQueue=Printer3
+    PrintLimit=5
+    Process=NoBinding
+    SupportsAct=No
+    SupportsCom=No
+    SupportsPos=Yes
+    SupportsPrt=No
+
+[Group4]
+    Bands=140, 350, 5
+    Binding=""
+    GroupNumber=4
+    InitQueue=InitCmdQ4
+    Interface=None
+    MaxPrinters=0
+    Messages=5, 20, 0
+    OutputQueue=Printer4
+    PrintLimit=5
+    Process=""
+    SupportsAct=No
+    SupportsCom=No
+    SupportsPos=No
+    SupportsPrt=No
+
+[Group5]
+    Bands=140, 350, 5
+    Binding=""
+    GroupNumber=5
+    InitQueue=InitCmdQ5
+    Interface=None
+    MaxPrinters=0
+    Messages=5, 20, 0
+    OutputQueue=Printer5
+    PrintLimit=5
+    Process=""
+    SupportsAct=No
+    SupportsCom=No
+    SupportsPos=No
+    SupportsPrt=No
+
+[Group6]
+    Bands=140, 350, 5
+    Binding=""
+    GroupNumber=6
+    InitQueue=InitCmdQ6
+    Interface=None
+    MaxPrinters=0
+    Messages=5, 20, 0
+    OutputQueue=Printer6
+    PrintLimit=5
+    Process=""
+    SupportsAct=No
+    SupportsCom=No
+    SupportsPos=No
+    SupportsPrt=No
+
+[Lanes]
+    1=1, StoreFront, Yes,Yes,No
+    2=2, StoreFront, Yes,Yes,No
+    3=3, StoreFront, Yes,Yes,No
+    4=4, StoreFront, Yes,Yes,No
+    5="", "", ""
+    6="", "", ""
+    7="", "", ""
+    8="", "", ""
+    9="", "", ""
+    10="", "", ""
+    MaxLanes=004
+    TotalLanes=004
+    TotalPrinters=004
+    EnumPrinterCount=004
+    TotalSatellites=000
+
+[Logs]
+    PingLogOption=0
+    DefaultOptions = c, g, o, v, q, r, s, l, n, k, j, "p:bls", "y:DW$SO2.$c"
+    Options = "-c -g -i:all -l -n -o -p:bls -q -r -s -v -k -j -y:DW$SO2.$c"
+    RollOverTimes = 23:55
+    RollOverMinutes = 05
+    RollOverWindowMinutes = 15
+    KLogFile = NO
+    QLogFile = NO
+    CLogFile = NO
+    DataWarehouse = FullBasket
+    CostEstRun=-f
+    LogStoreCardsOnly=NO
+
+[Modem]
+    BaudRate=14400
+    ModemAddress=0x3f8
+    ModemIrq=0x4
+    ModemPort=COM1
+    TransferType=Xmodem1K
+
+[NonAlcoholicBeer]
+    Code = 3
+    Values = On, Off
+    Print = On
+    Default = On
+
+[Printers]
+    BaseIpAddress=192.168.192.0
+    1=2, 4, 1, CMC6, 00-00-48-31-ED-45, 192.168.192.1, "", "",""
+    2=2, 4, 2, CMC6, 00-00-48-31-F4-63, 192.168.192.2, "", "",""
+    3=2, 4, 3, CMC6, 00-00-48-32-55-AF, 192.168.192.3, "", "",""
+    4=2, 4, 4, CMC6, 00-00-48-33-08-13, 192.168.192.4, "", "",""
+    5="", "", "", "", "", "", "", ""
+    6="", "", "", "", "", "", "", ""
+    7="", "", "", "", "", "", "", ""
+    8="", "", "", "", "", "", "", ""
+    9="", "", "", "", "", "", "", ""
+    10="", "", "", "", "", "", "", ""
+
+[Processes]
+    Cmc=coupapp, dumpbin, olcmd, ordrtmr, cidproc,vta,rtpos,pinsapplication,connectproxy,rttrig,posxmltranslator,webposstatemanager,USM_46XX
+            ,Replay,UdpIpP,
+            PntrStub
+    NcrFromPos=makeNcrPos, eatPosCapture
+    NcrFromReplay=makeNcrReplay, replayConv, eatReplayCapture
+    Print=testprnt, dumpbin,PntrStub
+    Process=syserr, syskey, sysdisp, logexec, batschd,MessageBroker,os2tnode
+
+[SignonMode]
+    Checkout=0
+    NonCheckout=3
+    SignedOff=2
+    Training=1
+
+[SprintA]
+    Code = 4
+    Values = On, Off
+    Print = On
+    Default = Off
+
+[SprintB]
+    Code = 5
+    Values = On, Off
+    Print = On
+    Default = Off
+
+[IFS]
+    ACTIVE = No
+
+[SBE]
+    Active=Yes
+    CommunicationTypeCheck=No
+
+[Store]
+    PhysicalSecurityStatus=ON
+    Market=01
+    Name=USSTORE
+    Number=0001
+    printchainname=No
+    PingLastOctet=1
+    EncryptLoyalty=No
+    EncryptAllOtherCards=No
+    AltStoreDbEraseDays=7
+    CommunicationType = Xcellenet
+    TimeZone=5
+    Upc2Format=FiveDigit
+    IgnoreSignonMode = N
+    welcomeMessage = "Connected to Store"
+    maxBinCaptFiles = 3
+    maxBinCaptSize = 10
+    ControlStore = Off
+    Alcohol = Off
+    NonAlcoholicBeer = Off
+    SprintA = Off
+    SprintB = Off
+    TestItems = "33333"
+    Terminals = "999"
+    LoopData = DataOnly
+    LogTotal = Display
+    CouponTotal = Display
+    Database = OCS
+    Reccnt = 6
+    ; Max award count is limited to 100 by cidproc.exe.
+    CCSMaxAwardCount=25
+    Storecheck=Yes
+    LookupCidExclusion=Yes
+    PriceAdjustmentQtyPassThru=No
+    
+[Comm]
+    CommDNS=uscomm.catalinamarketing.com
+    CommIP=198.199.226.252
+    MepDNS=mepprod.catalinamarketing.com
+    MepIP=198.199.226.244
+
+[MEP]
+    ServerPort=3000
+    Address="https://mepprod.catalinamarketing.com"
+
+[Capping]
+    Enabled=Yes
+    CappingInterval=3600
+    UsageUpdate=Yes
+    ActionRequest="mts/res/gc/medialist/CATALINA_IN_STORE"
+    ActionReport="mts/res/gc/mediausage/CATALINA_IN_STORE"
+
+[CDS]
+    Enabled=Yes
+    Mirror=\cds\mirror
+    AwardDir=award_file
+    JobDir=related_file
+    CatalinaDir=to_catalina
+    CCDir=cc_file
+    CCFileExtension=xml
+    CCFileBasePattern=*
+    AwardFileExtension=xml
+    AwardFileBasePattern=*
+    JobFileExtension=job
+    JobFileBasePattern=*
+    AfariaLockFileName=TransferLock.FLG
+    AwardsWithMissingImages=\strsystm\comm\awardsWithMissingImages.flg
+    AwardsLoadStatus=\strsystm\data\Xml2CtreeLoadStatus.txt
+
+[Omni]
+    ACTIVE = No
+    EnableOmniLogging = No
+    GetContent_EndPoint_Primary="http://198.199.226.234:3000/MediaDeliveryService/getContent"
+    GetContent_EndPoint_Secondary="http://198.199.226.234:3000/MediaDeliveryService/getContent"
+    GetPin_EndPoint_Primary="http://198.199.226.234:3000/MediaDeliveryService/getPin"
+    GetPin_EndPoint_Secondary="http://198.199.226.234:3000/MediaDeliveryService/getPin"
+    ReportContentDelivery_EndPoint_Primary="http://198.199.226.234:3000/MediaDeliveryService/reportContentDelivery"
+    ReportContentDelivery_EndPoint_Secondary="http://198.199.226.234:3000/MediaDeliveryService/reportContentDelivery"
+    EnableTransactionalReporting = Yes
+    PersistentReportingInterval = 1500
+    PersistentReportingWorkTime = 300
+
+[OmniPins]
+    Enabled=Yes
+    ReportRequestInterval=7200
+    ReportOnPrint=No
+    RepositoryDeletionGracePeriod = 30
+    ActionRequest="mts/res/v1/pin/pincache/CATALINA_IN_STORE"
+    ActionReport="mts/res/v1/pin/pinreport/CATALINA_IN_STORE"
+    SendTimeout = 0
+    ReceiveTimeout = 0
+    ConnectTimeout = 0
+
+[REALTIME]
+    RTPOS_Enabled=No
+    RTTRIG_Enabled=No
+    StoreImagesPath=\vault\images
+    ZeroMQ_Tran_Address=tcp://127.0.0.1:8001 
+    ZeroMQ_Print_Address=tcp://127.0.0.1:8000
+    VAULT_API_IP = 198.199.226.242
+    VaultLeadXmlDeleteDay=Sunday
+    ReportRealTimePrints=No
+    LogRealTimeTimestamps=No
+    VaultSourceDir=\vault
+    VaultBaseDir=\strsystm\vault_string_print_awards
+    AwardDir=award_file
+    AwardFileBasePattern=*.xml
+    CampaignBaseDir=ifs
+    VaultCampaign=999
+    AwardsWithMissingImages=\strsystm\comm\vaultAwardsWithMissingImages.flg
+    AwardsLoadStatus=\strsystm\data\vaultXml2CtreeLoadStatus.txt
+
+[UPCA]
+    BleedReduction = 0              ; Bleed Reduction Factor For UPCA barcode type
+    Rotate = True                   ; Rotate Redemtpion Segment For UPCA barcode type
+    BarcodeScale = 40               ; Barcode Scale Value for UPCA barcode type
+
+[EAN]
+    BleedReduction = 0              ; Bleed Reduction Factor For EAN13 barcode type
+    Rotate = True                   ; Rotate Redemtpion Segment For EAN13 barcode type
+    BarcodeScale = 40               ; Barcode Scale Value for EAN13 barcode type
+
+[GS1]
+    Rotate = True                   ; Rotate Redemtpion Segment For GS1 barcode type
+    BarcodeScale = 70               ; Barcode Scale Value for GS1 barcode type
+
+[WEBPOS]
+    Enabled=Yes
+    Host=192.168.91.61
+    Port=8199
+    LogLevel=info
+    SchemaFileName=pos.xsd
+    SchemaPath=/webpos/web_services/nodejs/pos/payload
+    ZeroMQ_Tran_Address=tcp://127.0.0.1:9101
+    StateManager=Generic
+    LogToConsole=No
+
+[chain]
+    graphic=00000
+    Name=US
+    Number=001
+
+[USM_46XX]
+    CustomerIdent="","","","","","",""
+    AllowDeptPurchaseFakeUpc=No
+    AllowRealDequeueOrderTotal=No
+    AlternateCodeRemap=nnnnnnnnnnnnnn
+    AutoQueue=Yes
+    AutoStartOrder=No
+    Bakery=0x00000000
+    BinOnlyBlockedDigitValue=0
+    BinOnlyIgnoreCIDs=No
+    CalculateExtendedPrice=No
+    Cash=0x01
+    Charge=0x06
+    Check=0x02
+    CheckDigitExceptionLength=0
+    Dairy=0x00000000
+    Debugging=0
+    DeferLookups=Yes
+    Deli=0x00000000
+    DeptItemDeptCodeFromPLU=No
+    DeptPurchaseIsItem=Yes
+    DrugCodeRemap=0019nnnnnnnnnn
+    DualOrderDualOp=EndCancel
+    DualOrderSingleOp=EndCancel
+    EftTender=0x05
+    EndOnTender=No
+    ExpandShortUPC=No
+    FoodStamp=0x03
+    Grocery=0x00000000
+    HonorRepeats=No
+    IgnorePriceUpdateMsg=No
+    InterfaceIsSerial=No
+    KeepCheckDigit=Yes
+    Liquor=0x00000000
+    Meat=0x00000000
+    Misc=0x07
+    PriceAdjustmentCutOff=NONE
+    PriceAdjustmentReplace=ITEM
+    Produce=0x00000000
+    QuantityFactor=0
+    RawDataRecord=CustomerID
+    RefLookup=9000000
+    SuspendResume=EndCreate
+    TotalIncludesTax=Yes
+    Type1Tender=No
+    WeightFactor=0
+    WIC=0x04
+
+[LaneMap]
+    00-00-48-31-ED-45=001,192.168.192.1,255.255.255.0,CpnPtr000010001L001,1,CpnPtr000010001L001_P,1,""
+    00-00-48-31-F4-63=002,192.168.192.2,255.255.255.0,CpnPtr000010001L002,2,CpnPtr000010001L002_P,1,""
+    00-00-48-32-55-AF=003,192.168.192.3,255.255.255.0,CpnPtr000010001L003,3,CpnPtr000010001L003_P,1,""
+    00-00-48-33-08-13=004,192.168.192.4,255.255.255.0,CpnPtr000010001L004,4,CpnPtr000010001L004_P,1,""
+
+[SoftwareVersion]
+    HALType=APICMP
+    Appendage="PROD XPE"
+    CMCPrintDriver=1.19.0
+    EpsonDriverReleaseDate=11/19/2010
+    EpsonPrintDriver=1.0.1.26
+    HighestPatch=0
+    Major=17
+    Minor=2
+    OSBuildDate="08/19/2014 "
+    OSVersion="2.0.55.02 "
+    OSVersionMisc1="HAL     : APICMP "
+    OSVersionText="***WES 2009 Image*** "
+    OtherVersion21="Afaria CMC Version : 1.1.1"
+    OtherVersion22="Afaria Version     : 6.6"
+    OtherVersion23="Afaria Date        : 7/24/2013"
+    OtherVersion31="NetOP Version : 9.50 (2010134)."
+    OtherVersion32="ProductKey : Y3RZ950-SNH0-3DEF00-68C1-SYBAS2"
+    OtherVersion33=""
+    OtherVersion41="Vault CMC Version: 1.0.9"
+    OtherVersion42="Vault Date: 12/22/2015"
+    Patch=0
+    Revision=20
+    Version=17.2.20.0
+    VersionFull="17.2.20.0(PROD XPE)"
+    VersionNoPatch=17.2.20
+
+[FirmwareUpdate]
+    192.168.192.1=,13119,0106
+    192.168.192.2=,23113,0106
+    192.168.192.3=,23112,0106
+    192.168.192.4=,23113,0106
+
+[PcDownMessageUpdate]
+    192.168.192.1=,""
+    192.168.192.2=,PCDownImageName
+    192.168.192.3=,PCDownImageName
+    192.168.192.4=,""
